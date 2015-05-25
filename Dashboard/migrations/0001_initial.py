@@ -28,7 +28,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('start', models.DateTimeField()),
                 ('end', models.DateTimeField()),
-                ('campaign', models.ForeignKey(to='CampaignEngine.Campaign')),
+                ('campaign', models.ForeignKey(to='dashboard.Campaign')),
             ],
             options={
             },
@@ -62,8 +62,8 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('central_user', models.TextField()),
                 ('depth', models.IntegerField()),
-                ('campaigns', models.ManyToManyField(to='CampaignEngine.Campaign')),
-                ('services', models.ManyToManyField(to='CampaignEngine.SocialMediaService')),
+                ('campaigns', models.ManyToManyField(to='dashboard.Campaign')),
+                ('services', models.ManyToManyField(to='dashboard.SocialMediaService')),
             ],
             options={
                 'abstract': False,
@@ -75,8 +75,8 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('phrase', models.TextField()),
-                ('campaigns', models.ManyToManyField(to='CampaignEngine.Campaign')),
-                ('services', models.ManyToManyField(to='CampaignEngine.SocialMediaService')),
+                ('campaigns', models.ManyToManyField(to='dashboard.Campaign')),
+                ('services', models.ManyToManyField(to='dashboard.SocialMediaService')),
             ],
             options={
                 'abstract': False,
@@ -86,13 +86,13 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='socialmediaaccount',
             name='service',
-            field=models.ForeignKey(to='CampaignEngine.SocialMediaService'),
+            field=models.ForeignKey(to='dashboard.SocialMediaService'),
             preserve_default=True,
         ),
         migrations.AddField(
             model_name='campaign',
             name='accounts_liked',
-            field=models.ManyToManyField(to='CampaignEngine.SocialMediaAccount'),
+            field=models.ManyToManyField(to='dashboard.SocialMediaAccount'),
             preserve_default=True,
         ),
         migrations.AddField(

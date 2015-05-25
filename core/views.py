@@ -6,7 +6,7 @@ from pprint import pprint
 
 def generic_view(request, **data):
     if request.is_ajax():
-        data['base_template'] = 'core/ajax.html'
+        data['base_template'] = 'core/pjax_base.html'
         html = render_to_string(data['template'], data)
         return HttpResponse(html, content_type='text/html')
     return render(request, data['template'], data)

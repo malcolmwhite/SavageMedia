@@ -35,31 +35,6 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
 {% block extrascript %}
-    <script>
-        $(function () {
-
-            // Prepare
-            var History = window.History; // Note: We are using a capital H instead of a lower h
-            if (!History.enabled) {
-                // History.js is disabled for this browser.
-                // This is because we can optionally choose to support HTML4 browsers or not.
-                return false;
-            }
-
-            // Bind to StateChange Event
-            History.Adapter.bind(window, 'statechange', function () {
-                var State = History.getState();
-                if (State) {
-                    $('#content').load(State.url);
-                }
-            });
-
-            ajaxifyLinks();
-        });
-    </script>
-
-
-
 {% endblock %}
 
 

@@ -5,7 +5,7 @@
 #
 # def generic_view(request, **data):
 #     if request.is_ajax():
-#         data['base_template'] = 'ajax.html'
+#         data['base_template'] = 'pjax_base.html'
 #         html = render_to_string(data['template'], data)
 #         return HttpResponse(html, content_type='text/html')
 #     return render(request, data['template'], data)
